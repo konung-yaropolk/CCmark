@@ -1,0 +1,59 @@
+#! /bin/bash
+lscpu
+echo ""
+echo ""
+echo ""
+echo "Compilation stared..."
+
+gcc float.c -O3 -o gcc_float.elf
+gcc long.c -O3 -o gcc_long.elf
+gcc long_double.c -O3 -o gcc_long_double.elf
+gcc int.c -o gcc_int.elf
+
+clang float.c -O3 -o clang_float.elf
+clang long.c -O3 -o clang_long.elf
+clang long_double.c -O3 -o clang_long_double.elf
+clang int.c -o clang_int.elf
+
+echo "Done!"
+echo ""
+echo ""
+
+echo "---GCC compiled---"
+echo ""
+echo "division of float (32bit):"
+time -p ./gcc_float.elf
+echo ""
+echo "division of long (64bit):"
+time -p ./gcc_long.elf
+echo ""
+echo "division of long double (80 bit):"
+time -p ./gcc_long_double.elf
+echo ""
+echo "addition of integers:"
+time -p ./gcc_int.elf
+
+echo ""
+echo ""
+echo ""
+
+echo "---Clang compiled---"
+echo ""
+echo "division of float (32bit):"
+time -p ./clang_float.elf
+echo ""
+echo "division of long (64bit):"
+time -p ./clang_long.elf
+echo ""
+echo "division of long double (80 bit):"
+time -p ./clang_long_double.elf
+echo ""
+echo "addition of integers:"
+time -p ./clang_int.elf
+
+echo ""
+echo ""
+echo ""
+echo "Do anykey to exit..."
+
+read
