@@ -1,4 +1,4 @@
-# CppCompilerMark
+# C Compiler Mark
 
 Just simple execute file 'run' in bash
   
